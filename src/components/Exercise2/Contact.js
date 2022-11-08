@@ -9,7 +9,6 @@ class Contact extends Component {
   render() {
     return (
       <div onClick={this.chooseContact}>
-        {/* should render a "name" recieved in props. Should also reieve the displayConvo prop, and call the function onClick */}
         {this.props.name}
       </div>
     );

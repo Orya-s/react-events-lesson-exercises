@@ -7,7 +7,6 @@ class List extends Component {
     return (
       <div >
           {this.props.list.map(c => <Contact key={c} name={c} setConvo={this.props.setConvo}/>)}
-        {/* Should render an array of Contact components , with the prop "name"*/}
       </div>
     );
   }
