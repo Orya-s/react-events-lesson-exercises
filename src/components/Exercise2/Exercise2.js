@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Conversation from './Conversation';
+import List from './List'
 
 class Exercise2 extends Component {
   constructor() {
@@ -34,11 +36,25 @@ class Exercise2 extends Component {
     }
   }
 
+  getContacts() {
+    return this.state.conversations.map(c => c.with)
+  }
+
+  displayConvo = contact => {
+    this.setState({displayConversation: contact})
+  }
+
+  getConvo = () => {
+    let contact = this.state.displayConversation
+    return this.state.conversations.find(c => c.with === contact)
+  }
+
   render() {
     return (
       <div >
-        {/* If displayConverastion is null - 
-    App should render List, otherwise it should display Conversation */}
+        {this.state.displayConversation != null ? 
+        <Conversation sender={this.state.displayConversation} convo={this.getConvo()} backToList={this.displayConvo}/> : 
+        <List list={this.getContacts()} setConvo={this.displayConvo}/>}
       </div>
     );
   }
